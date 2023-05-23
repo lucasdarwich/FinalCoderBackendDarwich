@@ -1,0 +1,207 @@
+paths:
+  /api/carts:
+    get:
+      summary: Obtener todos los carritos
+      tags:
+        - Carrito
+      description: Obtener todos los carritos
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/cart"
+    post:
+      summary: Crear un nuevo carrito
+      tags:
+        - Carrito
+      description: Crear un nuevo carrito
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/cart"
+      responses:
+        "201":
+          description: Carrito creado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/cart"
+  /api/carts/:id:
+    get:
+      summary: Obtener un carrito por ID
+      tags:
+        - Carrito
+      description: Obtener un carrito por ID
+      parameters:
+        - name: id
+          in: path
+          description: "ID del carrito a obtener"
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/cart"
+  /api/carts/:cid/products/:pid:
+    put:
+      summary: Agregar un producto a un carrito
+      tags:
+        - Carrito
+      description: Agregar un producto a un carrito
+      parameters:
+        - name: cid
+          in: path
+          description: "ID del carrito a actualizar"
+          required: true
+          schema:
+            type: string
+        - name: pid
+          in: path
+          description: "ID del producto a agregar"
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/cart"
+      responses:
+        "200":
+          description: Producto agregado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/cart"
+    delete:
+      summary: Eliminar un producto de un carrito
+      tags:
+        - Carrito
+      description: Eliminar un producto de un carrito
+      parameters:
+        - name: cid
+          in: path
+          description: "ID del carrito a actualizar"
+          required: true
+          schema:
+            type: string
+        - name: pid
+          in: path
+          description: "ID del producto a eliminar"
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Producto eliminado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/cart"
+  /api/carts/:cid:
+    delete:
+      summary: Eliminar un carrito
+      tags:
+        - Carrito
+      description: Eliminar un carrito
+      parameters:
+        - name: cid
+          in: path
+          description: "ID del carrito a eliminar"
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Carrito eliminado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/cart"
+  /api/carts/:uid/purchase:
+    post:
+      summary: Realizar la compra de un carrito
+      tags:
+        - Carrito
+      description: Realizar la compra de un carrito
+      parameters:
+        - name: uid
+          in: path
+          description: "ID del usuario propietario del carrito"
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Compra realizada correctamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ticket"
+
+components:
+  schemas:
+    cart:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: "ID único autogenerado por MongoDB"
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              product:
+                type: string
+                description: "ID de producto"
+              quantity:
+                type: string
+                description: "Cantidad de producto"
+            required:
+              - product
+          description: "Lista de productos en el carrito"
+        user:
+          type: string
+          description: "ID del usuario propietario del carrito"
+      example:
+        _id: "kajhd9127kajsh812asds23423"
+        products:
+          - product: "kajhd9127kajsh812asds23423"
+            quantity: 2
+          - product: "kajhd9127kajsh812asds23424"
+            quantity: 1
+        user: "kajhd9127kajsh812asds23425"
+    ticket:
+      type: object
+      required:
+        - code
+        - amount
+        - purchaser
+      properties:
+        code:
+          type: string
+          description: Código del ticket
+          example: ABC123
+        amount:
+          type: number
+          description: Monto del ticket
+          example: 500
+        purchaser:
+          type: string
+          description: Nombre del comprador
+          example: Juan Pérez
+      example:
+        code: ABC123
+        amount: 500
+        purchaser: Juan Pérez

@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <p class="phead">Bienvenido
+      <b>
+        {{firstName}}
+        {{lastName}}
+        {{admin}}</b></p>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item mright">
+          <a href="/api/chat" id="linkCarrito" class="mx-2"><button
+              class="btnCarrito btn btn-primary"
+            >Chat</button></a>
+        </li>
+        <li class="nav-item mright">
+          <a href="/api/home/cart" id="linkCarrito" class="mx-2"><button
+              class="btnCarrito btn btn-primary"
+            >Carrito</button></a>
+        </li>
+        <li class="nav-item mright">
+          <button class="btnCarrito btn btn-danger" id="logout">Logout</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<h3 class="centro">Listado de Productos</h3>
+<div class="containerCard" id="containerCards"></div>
+
+<div class="containerBtn">
+  <button id="btnAnterior" class="btn btn-primary">Anterior</button>
+  <h5 style="color: white">Pagina <span id="pag"></span></h5>
+  <button id="btnSiguiente" class="btn btn-primary">Siguiente</button>
+</div>

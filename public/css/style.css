@@ -1,0 +1,122 @@
+button {
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.mbot {
+  margin-bottom: 10px;
+}
+
+.mright {
+  margin-right: 10px;
+}
+
+.mleft {
+  margin-right: 10px;
+}
+input {
+  margin: 10px;
+  border-radius: 5px;
+  width: 70%;
+}
+.containerPerfil {
+  display: flex;
+  justify-content: space-around;
+}
+.btnLogout {
+  width: 10%;
+  cursor: pointer;
+}
+
+.btnCarrito {
+  width: 100%;
+  border-radius: 10px;
+}
+.containerCard {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerProductos {
+  display: flex;
+  justify-content: center;
+}
+
+.tituloInputs {
+  background-color: #777;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+.containerBtn {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+#btnAnterior,
+#btnSiguiente,
+#btnAnt,
+#btnSig {
+  width: 10%;
+  border-radius: 10px;
+}
+
+.btnVolver {
+  width: 10%;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.phead {
+  text-align: center;
+  padding: 10px;
+}
+
+.centro {
+  display: flex;
+  justify-content: center;
+}
+
+#chatContainer {
+  max-width: 80%;
+  margin: 30px auto;
+}
+
+#chatWindow {
+  padding: 14px 0;
+  margin: 5px;
+  border-bottom: 1px solid #e9e9e9;
+  background-color: rgb(214, 235, 214);
+  border-radius: 15px;
+}
+
+#output p {
+  color: #000;
+  padding: 14px;
+  margin: 20px;
+  background-color: #ffffff;
+  width: 60%;
+  border-radius: 15px 15px 15px 0px;
+}
+
+#actions p {
+  padding: 14px 0;
+  margin: 0 20px;
+  border-bottom: 1px solid #e9e9e9;
+  color: rgb(20, 141, 20);
+}
+
+.inputChat {
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 20px;
+  margin-bottom: 5px;
+  background: #ece6e6;
+  display: block;
+  width: 100%;
+}
